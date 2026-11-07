@@ -1,0 +1,30 @@
+/* Position-aware additions to PROJECT RISE 0.3 */
+.position-select{display:block;width:100%;padding:12px 11px;margin-top:8px;border-radius:12px;border:1px solid #4c617a;background:#0e1d2f;color:#f5f7fb;font:inherit;font-size:13px}
+.legacy-training{display:none !important}
+.position-training .train-icon{background:#2a4654;color:#f0d18b;font-weight:900}
+.role-panel{padding:16px}.role-panel-body{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:10px}
+.role-panel-body strong{font-size:17px}.role-rating{text-align:right;border-left:1px solid #42546a;padding-left:12px}
+.role-rating strong{display:block;font-size:25px;color:#ebc777}.role-rating small{color:#9babbc;font-size:9px}
+.role-records{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.role-records div{display:flex;flex-direction:column;gap:4px;text-align:center;min-width:88px;background:#26394a;border-radius:12px;padding:10px}
+.role-records strong{color:#e7ce86;font-size:17px}.role-records span{font-size:10px;color:#afc0cc}
+.role-stage{display:none;margin-top:12px;padding:15px;border:1px solid #426454;border-radius:20px;background:linear-gradient(160deg,#18392f,#0c2627)}
+#match.role-mode .field-wrap{display:none}
+#match.role-mode .role-stage{display:block}
+.role-stage-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px}
+.role-stage-head strong{color:#f1d28b}
+.tactical-pitch{position:relative;margin:13px 0;border:2px solid #ffffff55;border-radius:6px;background:repeating-linear-gradient(0deg,#196543,#196543 50px,#1a5a3c 50px,#1a5a3c 100px);height:165px;overflow:hidden}
+.tactical-pitch:before{content:'';position:absolute;inset:12px 40px 60px;border:2px solid #f8fff86c;border-top:0;border-radius:0 0 60px 60px}
+.tactical-half-circle{position:absolute;border:2px solid #ffffff55;width:125px;height:80px;border-radius:50%;left:50%;bottom:-42px;transform:translateX(-50%)}
+.tactical-lanes{position:absolute;display:grid;grid-template-columns:repeat(3,1fr);inset:0;align-items:center}
+.tactical-lanes div{border-left:1px dashed #ffffff55;height:100%;display:grid;place-items:center;color:#e5f9e6;font-weight:900;text-shadow:0 2px 4px #000;font-size:13px}
+.tactical-lanes div:first-child{border:0}
+.tactical-ball{position:absolute;bottom:8px;left:calc(50% - 14px);font-size:26px;filter:drop-shadow(0 5px 4px #0008)}
+.role-instruction{font-size:14px;line-height:1.55;color:#f1f7fa;font-weight:700;min-height:64px;margin:14px 0}
+.role-choice{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.role-choice button{border:1px solid #e5cc8d;background:linear-gradient(130deg,#f0d38c,#d3af61);padding:14px 4px;border-radius:12px;color:#13202d;font-weight:950;font-size:12px}
+.role-choice button:active{transform:scale(.97)}
+.role-tip{font-size:10px;line-height:1.5;color:#b8c9c6;margin:13px 0 0}
+.role-final{text-align:center;padding:18px 5px}.role-final-score{font-size:42px;color:#ebc77b;font-weight:950;margin:12px 0}
+.role-final h2{font-size:18px;line-height:1.45}.role-final p{font-size:12px;color:#b5c9cc}
+@media(max-width:380px){.role-panel-body strong{font-size:15px}.role-records div{min-width:76px}.role-choice{gap:5px}}

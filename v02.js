@@ -23,7 +23,7 @@
   if(!Number.isFinite(data.energy))data.energy=100;
   if(!Number.isFinite(data.morale))data.morale=75;
   data.energy=clamp2(data.energy,0,100);data.morale=clamp2(data.morale,0,100);
-  data.position=['ST','LW','RW','CAM','CM'].includes(data.position)?data.position:'ST';
+  data.position=(typeof RiseRoles!=='undefined' ? RiseRoles.has(data.position) : ['ST','LW','RW','CAM','CM'].includes(data.position)) ? data.position : 'ST';
   data.age=Number.isInteger(data.age)?data.age:18;
   data.profileCreated=Boolean(data.profileCreated||data.matches>0);
   if(!Number.isInteger(data.lastRest))data.lastRest=-1;
