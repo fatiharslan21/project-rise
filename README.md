@@ -1,28 +1,43 @@
 # PROJECT RISE — Football Life
 
-Mobil odaklı futbolcu kariyeri oyunu. Amaç: New Star Soccer kadar hızlı aksiyon, çok daha derin kariyer sistemi. Bu geliştirme henüz tamamlanmış oyun değildir.
+Hedef: New Star Soccer'un kısa mobil aksiyon döngüsünü, daha derin futbolcu RPG ve kariyer simülasyonuyla aşmak. **Henüz tamamlanmış bir oyun değil; çalışan geliştirme prototipi.**
 
-## v0.2 özellikleri
-- Mevcut v0.1 sürükle-bırak şut minioyunu, XP/kredi ve beceri gelişimi korunur.
-- Yeni kariyer oluşturma: isim ve mevki seçimi.
-- 8 kulüp, çift devreli 14 hafta, her hafta tüm takım maçları.
-- Puan tablosu, gol averajı, sezon ödülleri ve arşiv.
-- Enerji, moral, haftada bir dinlenme ve basın mesajları.
-- JSON kayıt yedeğini indirme ve yükleme.
-- v0.1 localStorage kariyerleri silinmeden yeni şemaya eklenir. Eski maçlar toplam kariyer istatistiği olarak kalır, lig sıfırdan başlar.
+## v0.3 (tüm mevkilerin temeli)
+- Seçilebilir 20 futbol pozisyonu (GK, CB, kanat bek, CDM, CAM, kanatlar, forvetler vb.).
+- Mevkiye özel rating ve antrenman öncelikleri; 11 oyuncu özelliği.
+- Beta mevki değişimi: Gelişim ekranında istediğin mevkiyi dene.
+- Santrfor / forvet: önceki sürükleyerek şut prototipi.
+- Kaleci: kurtarış yönü seçimi, savunmacı: müdahale yönü, orta saha: pas, kanat: orta açma görevleri.
+- Her görevin başarısı, oyuncu becerisi/enerji/moral ve kararın doğruluğuna bağlıdır.
+- Kurtarış, müdahale, kilit pas, başarılı orta, asist ve şut istatistikleri; son maç puanı.
+- v0.1 ve v0.2 kayıtları korunur; yeni alanlar otomatik eklenir.
+
+Bu görevler *oynanabilir mini-olaylar* olup tam animasyonlu kaleci/defans/pas motoru henüz değildir.
+
+## v0.2
+- 8 kulüp, çift devreli 14 haftalık lig, puan tablosu, simüle edilen rakip maçları, sezon arşivi ve ödüller.
+- Yeni kariyer (isim/mevki), kondisyon/moral, dinlenme, JSON dışa/içe aktarma.
+- Kayıtlar tarayıcı localStorage içinde; farklı cihazlara otomatik senkronize olmaz.
+
+## v0.1
+- Dokunarak/sürükleyerek şut, kaleci kurtarışı, 3 pozisyonluk maç, XP, kredi ve özellik yükseltme.
 
 ## Çalıştırma
-index.html dosyasını Chrome veya Edge ile aç. Kurulum gerektirmez. Netlify ana dalı yayınlıyor; yeni özellik dalı ana dala birleştirilene kadar mevcut site korunur.
+Kurulumsuz: index.html dosyasını Chrome/Edge'de aç.
+Netlify: GitHub ana dalındaki commitler otomatik yayınlanır.
+Test (Node.js 22): node --test tests/*.test.cjs
 
-## Testler
-Node.js kuruluysa: node --test tests/league.test.cjs
+## Dosya düzeni
+- index.html: temel ekran ve şut prototipi
+- engine/league.js: fikstür/puanlama/maç simülasyonu
+- engine/roles.js: futbol pozisyonları ve rol görev kuralları
+- v02.js, v02.css: lig & kariyer arayüzü
+- v03.js, v03.css: mevkiye özel antrenman & görev arayüzü
+- tests/: saf iş kurallarının otomatik testleri
+- ROADMAP.md: kapsam, eksikler, yapılacaklar
 
-## Dosyalar
-- index.html: temel şut prototipi ve eski kayıt sistemi
-- engine/league.js: bağımsız fikstür / puan / maç simülasyonu kuralları
-- v02.js: kariyer ve lig ekranları
-- v02.css: yeni görsel bileşenler
-- ROADMAP.md: tam oyun kapsamı ve kabul kriterleri
-
-## Sınırlar
-v0.2 hâlâ maç motorunun ilk sürümüdür. Pas, çalım, savunma, canlı AI, sözleşmeler, transfer, çoklu ligler ve çevrimiçi kayıt sistemi sonraki aşamalardır. Gerçek kulüp markaları lisanssız kullanılmamalıdır.
+## Kalite ilkeleri
+- Çalışan sürümleri bozmadan PR + CI + Netlify önizleme.
+- Başka cihazda kayıt için JSON yedek alma.
+- Gerçek kulüp adları/armaları/oyuncu görselleri lisans kontrolü olmadan kullanılmaz.
+- Pas/çalım/kaleci/defans AI, taktik, transfer, çoklu lig, lisans ve mobil mağaza sürümü ileride geliştirilecektir.

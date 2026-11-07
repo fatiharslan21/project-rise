@@ -1,20 +1,22 @@
 name: Project Rise checks
 on:
   push:
-    branches: [main, feature/season-career-v02]
+    branches: [main, feature/season-career-v02, feature/all-positions-v03]
   pull_request:
     branches: [main]
 jobs:
-  league-tests:
+  game-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Syntax check
+      - name: JavaScript syntax
         run: |
           node --check engine/league.js
+          node --check engine/roles.js
           node --check v02.js
-      - name: League rules tests
-        run: node --test tests/league.test.cjs
+          node --check v03.js
+      - name: Career game rule tests
+        run: node --test tests/*.test.cjs
