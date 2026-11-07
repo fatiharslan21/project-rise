@@ -1,7 +1,7 @@
 name: Project Rise checks
 on:
   push:
-    branches: [main, feature/season-career-v02, feature/all-positions-v03]
+    branches: [main, feature/season-career-v02, feature/all-positions-v03, feature/live-arena-v04]
   pull_request:
     branches: [main]
 jobs:
@@ -18,5 +18,8 @@ jobs:
           node --check engine/roles.js
           node --check v02.js
           node --check v03.js
+          node --check arena/engine.js
+          node --check arena/view.js
+          node --check v04.js
       - name: Career game rule tests
         run: node --test tests/*.test.cjs
