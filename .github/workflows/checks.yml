@@ -16,10 +16,27 @@ jobs:
         run: |
           node --check engine/league.js
           node --check engine/roles.js
-          node --check v02.js
-          node --check v03.js
           node --check arena/engine.js
           node --check arena/view.js
+          node --check v02.js
+          node --check v03.js
           node --check v04.js
+          node --check tests/smoke.cjs
       - name: Career game rule tests
         run: node --test tests/*.test.cjs
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run app in Chromium
+        run: |
+          python3 -m http.server 4173 --directory . >/tmp/rise-http.log 2>&1 &
+          node tests/smoke.cjs

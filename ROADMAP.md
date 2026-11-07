@@ -1,31 +1,37 @@
-# PROJECT RISE — Oyun geliştirme hedefleri
+# PROJECT RISE — Tam oyun hedefi
 
-Hedef: New Star Soccer'ın kısa aksiyon döngüsünü, tüm mevkiler için gerçekçi şekilde farklılaşan uzun kariyerle birleştirmek.
+## Vizyon
+NSS'nin eğlenceli kısa futbol anlarını, tüm mevkiler için farklı kariyer deneyimiyle büyütmek. Kaleci, stoper, bek, ön libero, oyun kurucu, kanat ve forvet için ayrı maç mekaniği ve kariyer değerlendirmeleri.
 
-## Tamamlanan temeller
-- [x] v0.1 klasik şut, XP, antrenman, yerel kayıt
-- [x] v0.2 8 takımlı 14 haftalık lig, puanlama, arşiv, yedek
-- [x] v0.3 20 mevki, mevkiye özel temel aksiyon ve antrenman
-- [x] v0.4 canlı 6v6 saha prototipi, kontrol, pas/şut/top kapma, temel AI ve skor kariyer bağlantısı
+## Mevki tasarımı ve ileriki aşamalar
+| Pozisyon | Şu anki mini görev | Nihai kariyer derinliği |
+|---|---|---|
+| GK | yön seçerek kurtarış | çıkış, refleks, penaltı, savunma komutu, clean sheet |
+| CB/LCB/RCB/SW | müdahale | markaj, hava topu, blok, hat yönetimi, liderlik |
+| LB/RB | müdahale | bindirme, savunma yerleşimi, orta |
+| LWB/RWB | orta | bek-kanat geçişleri, pres, orta ve defans |
+| CDM | müdahale | top kapma, pozisyon, ilk pas, oyun kurma |
+| CM/CAM | pas | oyun temposu, ara pas, pas bağlantısı, yaratıcı aksiyon |
+| LM/RM/LW/RW | orta | çalım, sprint, orta, asist, gol |
+| ST/CF/LF/RF | şut | bitiricilik, sırtı dönük oyun, topsuz koşu, asist |
 
-## Planlanan yükseltmeler
-- [ ] v0.5: Kaleci ve savunma gerçek zamanlı AI, pas/şut/çalım fiziği ve animasyonlar, oyuncu karakteristikleri
-- [ ] v0.6: 11v11 takım formasyonları, antrenör taktiği, fauller, duran toplar, sakatlık, 90 dakikalık maç akışı
-- [ ] v0.7: Gerçek yaşayan futbol dünyası: birden fazla lig/kupa, sözleşmeler, transfer pencereleri, oyuncu veritabanı, emeklilik
-- [ ] v0.8: Medya, menajer, ilişkiler, sponsorluk, gerçek kararların kariyere etkisi
-- [ ] v0.9: Erişilebilirlik, ses/efekt, iOS/Android, otomatik maç testleri, kayıt dayanıklılığı
-- [ ] v1.0: Tamamlanmış ve mağazaya hazır mobil oyun (lisans ve kalite süreçleri tamamlanmış)
+## Aşamalar
+- [x] v0.1: Şut prototipi, XP/kredi, yerel kayıt
+- [x] v0.2: Lig fikstürü, sezonlar, kayıt yedeği
+- [x] v0.3: 20 mevki, farklı görev türleri, role özel gelişim, rol istatistikleri
+- [ ] v0.4: Phaser tabanlı gerçek saha motoru, pas/çalımlar, koşan oyuncular ve AI
+- [ ] v0.5: Gelişmiş kaleci/savunma/orta saha pozisyonlarında gerçek animasyonlu etkileşim
+- [ ] v0.6: Sözleşmeler, transferler, kulüp güveni, takımda rol/forma rekabeti
+- [ ] v0.7: Çoklu ligler/kupalar, oyuncu havuzu, yaşlanma/emeklilik, yaşanabilir ekonomi
+- [ ] v0.8: Hikâyeler, basın, sponsor, sosyal yaşam, oyuncu kararları
+- [ ] v0.9: Uzun kayıtlar, tarayıcı/cihaz testleri, performans, ses ve görsel kalite
+- [ ] v1.0: Android/iOS paketleme, hukuk ve mağaza gereklilikleri, çıkış testleri
 
-## Test koşulları
-- Tüm 20 mevkide canlı maç başlatılmalı.
-- 75 saniyelik gerçek zamanlı simülasyon sonunda maç yalnızca bir kez kariyere kaydedilmeli.
-- Sezon ve lig puanı korunmalı; kariyer v0.1–v0.3'ten v0.4'e taşınmalı.
-- Klasik moda geri dönebilmek mümkün olmalı.
-- Basit saha simülasyonu kuralları Node testlerini geçmeli.
-- Yeni modda Phaser/CDN hatası klasik modda oynanmayı engellememeli.
-
-## Teknik borç
-- Phaser CDN bağımlılığını kilitli npm paketine taşı; dağıtım bundle oluştur.
-- Büyük global override zincirini (v01-v04) modüler, olay temelli durum makinesine değiştir.
-- Maçta çift kayıt, eşzamanlı input, isabet/AI sapma testlerini genişlet.
-- Mobil cihazlarda düşük RAM, yatay ekran ve erişilebilir kontroller için test planı oluştur.
+## Kabul kriterleri
+- 20 pozisyonun hiçbiri yeni kariyerde 'ST'ye dönmemeli.
+- Pozisyon ratingleri farklı özellik ağırlıklarıyla hesaplanmalı.
+- Bir kaleci kurtarış yapmalı ve kurtarış sayısı kalıcı olarak tutulmalı.
+- Savunma, orta saha ve kanat görevleri kendi istatistiklerini kaydetmeli.
+- 14 haftalık sezon puan ve fikstür kayıtları tutarlı kalmalı.
+- Önceki v0.1/v0.2 kariyerleri migration ile açılmalı.
+- Yedekleme sistemi mevcut veri alanlarını korumalı.

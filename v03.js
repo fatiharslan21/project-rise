@@ -11,7 +11,6 @@
  const statNames={saves:'Kurtarış',tackles:'Müdahale',keyPasses:'Kilit pas',crosses:'Başarılı orta',assists:'Asist',shots:'Şut'};
  const missionTitles={save:'KALECİ MÜCADELESİ',defend:'SAVUNMA MÜCADELESİ',pass:'PAS VE OYUN KURMA',cross:'KANAT / ORTA MÜCADELESİ',shoot:'ŞUT MÜCADELESİ'};
  let session=null, scenario=null;
- window.RiseClearRoleSession=()=>{session=null;scenario=null;};
  const select=$('#footballerPosition');
  select.innerHTML=R.positions.map(p=>'<option value="'+p.id+'">'+p.id+' — '+p.name+'</option>').join('');
  select.value=R.has(data.position)?data.position:'ST';
