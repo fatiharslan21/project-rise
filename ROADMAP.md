@@ -1,31 +1,33 @@
-# PROJECT RISE — Oyun geliştirme hedefleri
+# PROJECT RISE — Nihai vizyon
 
-Hedef: New Star Soccer'ın kısa aksiyon döngüsünü, tüm mevkiler için gerçekçi şekilde farklılaşan uzun kariyerle birleştirmek.
+## Ana oyun kuralı
+NSS tarzı maç: yorum metni + öne çıkan pozisyon. DURDURULMUŞ üstten saha ve oyuncunun şut, pas, orta, müdahale, kurtarış için **yön/güç belirlemesi**. Sürekli canlı 6v6/11v11 kontrolü hedef değildir.
 
-## Tamamlanan temeller
-- [x] v0.1 klasik şut, XP, antrenman, yerel kayıt
-- [x] v0.2 8 takımlı 14 haftalık lig, puanlama, arşiv, yedek
-- [x] v0.3 20 mevki, mevkiye özel temel aksiyon ve antrenman
-- [x] v0.4 canlı 6v6 saha prototipi, kontrol, pas/şut/top kapma, temel AI ve skor kariyer bağlantısı
+## v0.5 (oynanabilir)
+- [x] Maç anlatımı, dakika, 5 kritik pozisyon
+- [x] Pas, şut, çalım, orta, savunma ve kaleci etkinlikleri
+- [x] Drag-based yön ve vuruş gücü, beceri bazlı başarı
+- [x] 20 mevki için farklı pozisyon dağılımları
+- [x] Liga ve kariyere tek maç kayıt akışı, eski veriler korunur
+- [x] Canlı 6v6 modunu arayüzden çıkar
 
-## Planlanan yükseltmeler
-- [ ] v0.5: Kaleci ve savunma gerçek zamanlı AI, pas/şut/çalım fiziği ve animasyonlar, oyuncu karakteristikleri
-- [ ] v0.6: 11v11 takım formasyonları, antrenör taktiği, fauller, duran toplar, sakatlık, 90 dakikalık maç akışı
-- [ ] v0.7: Gerçek yaşayan futbol dünyası: birden fazla lig/kupa, sözleşmeler, transfer pencereleri, oyuncu veritabanı, emeklilik
-- [ ] v0.8: Medya, menajer, ilişkiler, sponsorluk, gerçek kararların kariyere etkisi
-- [ ] v0.9: Erişilebilirlik, ses/efekt, iOS/Android, otomatik maç testleri, kayıt dayanıklılığı
-- [ ] v1.0: Tamamlanmış ve mağazaya hazır mobil oyun (lisans ve kalite süreçleri tamamlanmış)
+## v0.6
+- [ ] Top fiziği, yükseklik ve falso, rüzgâr, vuruş öncesi oyuncu koşuları
+- [ ] Animasyonlu rakip ve kaleci tepkileri, seken toplar ve ileri pozisyon zincirleri
+- [ ] Gerçekçi formasyon ve takım arkadaşı davranışları
+- [ ] Faul, frikik, penaltı, korner, ofsayt simülasyonu
 
-## Test koşulları
-- Tüm 20 mevkide canlı maç başlatılmalı.
-- 75 saniyelik gerçek zamanlı simülasyon sonunda maç yalnızca bir kez kariyere kaydedilmeli.
-- Sezon ve lig puanı korunmalı; kariyer v0.1–v0.3'ten v0.4'e taşınmalı.
-- Klasik moda geri dönebilmek mümkün olmalı.
-- Basit saha simülasyonu kuralları Node testlerini geçmeli.
-- Yeni modda Phaser/CDN hatası klasik modda oynanmayı engellememeli.
+## v0.7
+- [ ] Çoklu ligler ve kupalar; finansal sözleşme ve transfer sistemi
+- [ ] Yaşlanan/transfer olan oyuncu havuzu; takım ve menajer ilişkileri
 
-## Teknik borç
-- Phaser CDN bağımlılığını kilitli npm paketine taşı; dağıtım bundle oluştur.
-- Büyük global override zincirini (v01-v04) modüler, olay temelli durum makinesine değiştir.
-- Maçta çift kayıt, eşzamanlı input, isabet/AI sapma testlerini genişlet.
-- Mobil cihazlarda düşük RAM, yatay ekran ve erişilebilir kontroller için test planı oluştur.
+## v0.8-1.0
+- [ ] Basın, taraftarlar, sosyal yaşam, sponsorluk ve hikâye kararları
+- [ ] Tam mobil optimizasyon, kayıt sürümleme, sesler, analitik ve mağazaya hazırlık
+
+## Kabul kriterleri
+- Oyuncu maçta kesintisiz saha boyunca hareket ettirilmez.
+- 20 mevkide pozisyon akışı çalışır ve her tamamlanan maç tek kez lig/kariyere kaydedilir.
+- Kaleci ve savunmacı şutlarla değil kurtarış/müdahalelerle değerlendirilir.
+- Veri eski sürümlerden kaybolmadan taşınır.
+- Klavye veya fareyle akış, mobil dokunmatik etkileşim ve ekran adaptasyonu doğrulanır.

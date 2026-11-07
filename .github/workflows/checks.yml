@@ -1,7 +1,7 @@
 name: Project Rise checks
 on:
   push:
-    branches: [main, feature/season-career-v02, feature/all-positions-v03, feature/live-arena-v04]
+    branches: [main, feature/nss-highlights-v05]
   pull_request:
     branches: [main]
 jobs:
@@ -16,13 +16,12 @@ jobs:
         run: |
           node --check engine/league.js
           node --check engine/roles.js
-          node --check arena/engine.js
-          node --check arena/view.js
+          node --check engine/highlights.js
           node --check v02.js
           node --check v03.js
-          node --check v04.js
+          node --check v05.js
           node --check tests/smoke.cjs
-      - name: Career game rule tests
+      - name: Game rules
         run: node --test tests/*.test.cjs
   browser-smoke:
     runs-on: ubuntu-latest
@@ -36,7 +35,7 @@ jobs:
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Run app in Chromium
+      - name: Browser regression test
         run: |
           python3 -m http.server 4173 --directory . >/tmp/rise-http.log 2>&1 &
           node tests/smoke.cjs

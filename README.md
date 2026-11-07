@@ -1,35 +1,35 @@
 # PROJECT RISE — Football Life
 
-Açık kaynaklı mobil öncelikli futbolcu kariyer prototipi. Amaç: NSS'nin eğlenceli anlık maç oynanışını daha uzun ve derin bir kariyer simülasyonu ile aşmak.
+Mobil odaklı futbolcu kariyer oyunu prototipi. **Ana oynanış yaklaşımı NSS tarzı:** maç simülasyon/anlatımla akar, kilit anlarda yukarıdan saha açılır, oyuncu aksiyonu seçer ve sürükleyerek yön/güç verir. Sürekli canlı futbolcu kontrolü YOK.
 
-## v0.4: Gerçek zamanlı saha beta
-- Phaser 3.90 ile 6'ya 6 küçük saha görünümü, oyuncu ve top animasyonları.
-- Aktif futbolcuyu klavye (WASD/oklar) veya telefonda sahaya dokunup sürükleyerek kontrol et.
-- Q ile pas, Space ile şut, E ile top kapma; mobilde ekrandaki düğmeler.
-- Paslar, rakip baskısı, kaleciler, takım arkadaşı/rakip hareketleri, gol çizgileri ve 75 saniyelik maç.
-- Kaleci dahil 20 mevki ile sahaya çıkma; mevkiye özgü istatistiklerin kariyere yazılması.
-- Klasik maç modunu seçebilirsin: v0.3 mini taktik görevleri ve v0.1 sürüklemeli şut bozulmadan korunur.
-- Mevcut v0.1-v0.3 tarayıcı kariyer kaydı saklanır, beta sırasında yedek dışa aktarımı kullanılabilir.
+## v0.5 — Pozisyon bazlı maçlar
+- Bir maç beş önemli pozisyondan oluşur; dakika, skor, anlatım ve maç günlüğü gösterilir.
+- Şut, pas, çalım, orta, top kapma, araya girme, uzaklaştırma, kaleci kurtarışı gibi aksiyonlar.
+- Topa veya işaretli oyuncuya basılı tutup hedefe doğru sürükleyerek yön ve güç verilir.
+- Hedefleme doğruluğu, şut/pas/savunma/kaleci becerileri, enerji ve moral başarı ihtimalini etkiler.
+- Her pozisyondan sonra maç devam eder, sonrasında kariyere ve lige tek seferlik kayıt yapılır.
+- Kaleci, stoper, orta saha, kanat ve forvet gibi 20 mevkide farklı anlar.
+- Mevcut v0.1–v0.4 kayıtları aynı localStorage anahtarı üzerinden korunur.
+- v0.4'ün sürekli canlı 6v6 modu oyunun arayüzünden ve sayfa yüklemelerinden kaldırıldı.
 
-**Bu gerçek zamanlı 6v6 beta**, henüz 11v11, gelişmiş taktik/animasyon ve gerçek maç motoru dengesi değildir.
+## Önceki sürümlerde korunanlar
+- 8 kulüp, 14 haftalık çift devreli lig, rakip maç simülasyonu, puan tablosu, sezon arşivi.
+- 20 mevki, mevkiye göre gelişim özellikleri, antrenman ve beta mevki değiştirme.
+- Enerji/moral, dinlenme, para/XP, tarayıcı kayıt sistemi, JSON yedekleme.
 
-## Bağımlılık
-Phaser 3.90.0 CDN üzerinden yüklenir. İnternet/CDN erişimi kesilirse uygulama klasik moda geçer.
-Gelecekte sürüm sabitleme ve yerel paketleme/Vite yapılacaktır.
+## Kurulum
+index.html dosyasını Chrome/Edge'de açmak yeterli. GitHub → Netlify otomatik yayınlanır.
 
 ## Test
 Node.js: node --test tests/*.test.cjs
-GitHub Actions: JS söz dizimi ve oyun kuralları testleri.
-Netlify Deploy Previews: gerçek mobil/dokunmatik ve PC oynanış testi.
 
-## Modüller
-- index.html — kariyer ve maç ekranlarının kabuğu
-- engine/league.js — lig, fikstür, puanlama
-- engine/roles.js — mevkiler, rating ve beceriler
-- arena/engine.js — Phaser'dan bağımsız maç simülasyonu kuralları
-- arena/view.js — Phaser ile oyun sahası ve input
-- v02.js / v03.js / v04.js — kariyer ve ek özelliklerin entegrasyonu
-- ROADMAP.md — proje kapsamı ve teknik borçlar
+## Mevcut sınırlar
+Bu NSS ilhamlı ilk oynanabilir pozisyon prototipidir; henüz NSS'nin tüm pas, falso, rüzgâr, gelişmiş takım arkadaşı ve rakip davranışları, duran toplar, 11v11 simülasyon yoğunluğu yoktur. Transfer/sözleşme, çok lig ve yaşayan kariyer dünyası da geliştirme planında. Gerçek takım adları/görselleri lisans kontrolü gerektirir.
 
-## Bilinen sınırlar
-Gerçek takım lisansları yoktur. Maç verileri cihazdaki localStorage'da tutulur. Maç ortasında kapatılırsa tamamlanmayan maç kaydedilmez. Transfer, sözleşme, çoklu lig, ses, fizik bazlı çalım, gerçek 11v11 ve tam mobil mağaza sürümü henüz yoktur.
+## Mimari
+- engine/highlights.js — olay simülasyonu ve vuruş çözümleme
+- v05.js / v05.css — çizilen saha, dokunmatik/fare kontrolü, kariyer entegrasyonu
+- engine/roles.js — 20 mevki ve becerileri
+- engine/league.js — çift devreli lig
+- v02.js, v03.js — kariyer ve antrenman
+- archive: arena/ ve v04.js kaynakları referans olarak repoda durur ama sayfada yüklenmez.
