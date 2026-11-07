@@ -175,6 +175,7 @@
   const chanceCount=game.chance,goals=game.playerGoals;
   oldEnd();
   ensure();
+  if(window.RiseHighlightFinalizing){render();save();return;}
   if(record&&record.mission!=='shoot'){
    for(const [key,count] of Object.entries(record.stats)){
     if(Object.prototype.hasOwnProperty.call(data.roleStats,key))data.roleStats[key]+=count;
