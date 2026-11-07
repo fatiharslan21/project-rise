@@ -1,43 +1,35 @@
 # PROJECT RISE — Football Life
 
-Hedef: New Star Soccer'un kısa mobil aksiyon döngüsünü, daha derin futbolcu RPG ve kariyer simülasyonuyla aşmak. **Henüz tamamlanmış bir oyun değil; çalışan geliştirme prototipi.**
+Açık kaynaklı mobil öncelikli futbolcu kariyer prototipi. Amaç: NSS'nin eğlenceli anlık maç oynanışını daha uzun ve derin bir kariyer simülasyonu ile aşmak.
 
-## v0.3 (tüm mevkilerin temeli)
-- Seçilebilir 20 futbol pozisyonu (GK, CB, kanat bek, CDM, CAM, kanatlar, forvetler vb.).
-- Mevkiye özel rating ve antrenman öncelikleri; 11 oyuncu özelliği.
-- Beta mevki değişimi: Gelişim ekranında istediğin mevkiyi dene.
-- Santrfor / forvet: önceki sürükleyerek şut prototipi.
-- Kaleci: kurtarış yönü seçimi, savunmacı: müdahale yönü, orta saha: pas, kanat: orta açma görevleri.
-- Her görevin başarısı, oyuncu becerisi/enerji/moral ve kararın doğruluğuna bağlıdır.
-- Kurtarış, müdahale, kilit pas, başarılı orta, asist ve şut istatistikleri; son maç puanı.
-- v0.1 ve v0.2 kayıtları korunur; yeni alanlar otomatik eklenir.
+## v0.4: Gerçek zamanlı saha beta
+- Phaser 3.90 ile 6'ya 6 küçük saha görünümü, oyuncu ve top animasyonları.
+- Aktif futbolcuyu klavye (WASD/oklar) veya telefonda sahaya dokunup sürükleyerek kontrol et.
+- Q ile pas, Space ile şut, E ile top kapma; mobilde ekrandaki düğmeler.
+- Paslar, rakip baskısı, kaleciler, takım arkadaşı/rakip hareketleri, gol çizgileri ve 75 saniyelik maç.
+- Kaleci dahil 20 mevki ile sahaya çıkma; mevkiye özgü istatistiklerin kariyere yazılması.
+- Klasik maç modunu seçebilirsin: v0.3 mini taktik görevleri ve v0.1 sürüklemeli şut bozulmadan korunur.
+- Mevcut v0.1-v0.3 tarayıcı kariyer kaydı saklanır, beta sırasında yedek dışa aktarımı kullanılabilir.
 
-Bu görevler *oynanabilir mini-olaylar* olup tam animasyonlu kaleci/defans/pas motoru henüz değildir.
+**Bu gerçek zamanlı 6v6 beta**, henüz 11v11, gelişmiş taktik/animasyon ve gerçek maç motoru dengesi değildir.
 
-## v0.2
-- 8 kulüp, çift devreli 14 haftalık lig, puan tablosu, simüle edilen rakip maçları, sezon arşivi ve ödüller.
-- Yeni kariyer (isim/mevki), kondisyon/moral, dinlenme, JSON dışa/içe aktarma.
-- Kayıtlar tarayıcı localStorage içinde; farklı cihazlara otomatik senkronize olmaz.
+## Bağımlılık
+Phaser 3.90.0 CDN üzerinden yüklenir. İnternet/CDN erişimi kesilirse uygulama klasik moda geçer.
+Gelecekte sürüm sabitleme ve yerel paketleme/Vite yapılacaktır.
 
-## v0.1
-- Dokunarak/sürükleyerek şut, kaleci kurtarışı, 3 pozisyonluk maç, XP, kredi ve özellik yükseltme.
+## Test
+Node.js: node --test tests/*.test.cjs
+GitHub Actions: JS söz dizimi ve oyun kuralları testleri.
+Netlify Deploy Previews: gerçek mobil/dokunmatik ve PC oynanış testi.
 
-## Çalıştırma
-Kurulumsuz: index.html dosyasını Chrome/Edge'de aç.
-Netlify: GitHub ana dalındaki commitler otomatik yayınlanır.
-Test (Node.js 22): node --test tests/*.test.cjs
+## Modüller
+- index.html — kariyer ve maç ekranlarının kabuğu
+- engine/league.js — lig, fikstür, puanlama
+- engine/roles.js — mevkiler, rating ve beceriler
+- arena/engine.js — Phaser'dan bağımsız maç simülasyonu kuralları
+- arena/view.js — Phaser ile oyun sahası ve input
+- v02.js / v03.js / v04.js — kariyer ve ek özelliklerin entegrasyonu
+- ROADMAP.md — proje kapsamı ve teknik borçlar
 
-## Dosya düzeni
-- index.html: temel ekran ve şut prototipi
-- engine/league.js: fikstür/puanlama/maç simülasyonu
-- engine/roles.js: futbol pozisyonları ve rol görev kuralları
-- v02.js, v02.css: lig & kariyer arayüzü
-- v03.js, v03.css: mevkiye özel antrenman & görev arayüzü
-- tests/: saf iş kurallarının otomatik testleri
-- ROADMAP.md: kapsam, eksikler, yapılacaklar
-
-## Kalite ilkeleri
-- Çalışan sürümleri bozmadan PR + CI + Netlify önizleme.
-- Başka cihazda kayıt için JSON yedek alma.
-- Gerçek kulüp adları/armaları/oyuncu görselleri lisans kontrolü olmadan kullanılmaz.
-- Pas/çalım/kaleci/defans AI, taktik, transfer, çoklu lig, lisans ve mobil mağaza sürümü ileride geliştirilecektir.
+## Bilinen sınırlar
+Gerçek takım lisansları yoktur. Maç verileri cihazdaki localStorage'da tutulur. Maç ortasında kapatılırsa tamamlanmayan maç kaydedilmez. Transfer, sözleşme, çoklu lig, ses, fizik bazlı çalım, gerçek 11v11 ve tam mobil mağaza sürümü henüz yoktur.
