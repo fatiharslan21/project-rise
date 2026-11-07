@@ -31,7 +31,7 @@ test('goalkeeper direction and skill affect a save',()=>{
 test('a properly aimed powerful shot can score',()=>{
  const m=H.newMatch('ST',{shot:95},100,100,()=>.5);
  const moment=H.current(m);
- const score=H.resolve(m,'shoot',{x:moment.marker.x,y:42},.95,()=>1);
+ let trial=0;const score=H.resolve(m,'shoot',{x:moment.marker.x,y:42},.95,()=>trial++===0?0:1);
  assert.equal(score.forGoals,1);assert.equal(m.home,1);assert.equal(m.stats.goals,1);
 });
 test('defender can intercept and record a tackle',()=>{
