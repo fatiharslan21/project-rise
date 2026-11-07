@@ -1,38 +1,28 @@
-# PROJECT RISE — Football Life | PC Başlangıç (v0.1)
+# PROJECT RISE — Football Life
 
-Unity gerektirmeyen, tek HTML dosyasıyla çalışan ilk futbolcu kariyeri ve şut prototipi.
+Mobil odaklı futbolcu kariyeri oyunu. Amaç: New Star Soccer kadar hızlı aksiyon, çok daha derin kariyer sistemi. Bu geliştirme henüz tamamlanmış oyun değildir.
 
-## 1. PC'de çalıştır
+## v0.2 özellikleri
+- Mevcut v0.1 sürükle-bırak şut minioyunu, XP/kredi ve beceri gelişimi korunur.
+- Yeni kariyer oluşturma: isim ve mevki seçimi.
+- 8 kulüp, çift devreli 14 hafta, her hafta tüm takım maçları.
+- Puan tablosu, gol averajı, sezon ödülleri ve arşiv.
+- Enerji, moral, haftada bir dinlenme ve basın mesajları.
+- JSON kayıt yedeğini indirme ve yükleme.
+- v0.1 localStorage kariyerleri silinmeden yeni şemaya eklenir. Eski maçlar toplam kariyer istatistiği olarak kalır, lig sıfırdan başlar.
 
-- `index.html` dosyasına çift tıklayıp Chrome veya Edge'de aç.
-- Kariyer ekranından **Sahaya Çık**'ı seç.
-- Fareyle topu sürükleyip bırakarak şut çek.
-- Maç sonunda XP kazan; **Gelişim** ekranında futbolcunu geliştir.
+## Çalıştırma
+index.html dosyasını Chrome veya Edge ile aç. Kurulum gerektirmez. Netlify ana dalı yayınlıyor; yeni özellik dalı ana dala birleştirilene kadar mevcut site korunur.
 
-> Kayıt, oynadığın tarayıcının `localStorage` alanına yazılır. Farklı tarayıcı/cihazlarda otomatik paylaşılmaz.
+## Testler
+Node.js kuruluysa: node --test tests/league.test.cjs
 
-## 2. GitHub'a ekle
+## Dosyalar
+- index.html: temel şut prototipi ve eski kayıt sistemi
+- engine/league.js: bağımsız fikstür / puan / maç simülasyonu kuralları
+- v02.js: kariyer ve lig ekranları
+- v02.css: yeni görsel bileşenler
+- ROADMAP.md: tam oyun kapsamı ve kabul kriterleri
 
-1. https://github.com/new adresinde `project-rise` adında boş bir depo oluştur (tercihen README ekleme; bu pakette hazır).
-2. Depoda **Add file → Upload files** seç.
-3. Bu klasördeki **dosyaları** (`index.html`, `README.md`, `netlify.toml`, `.gitignore`) depoya yükle. Klasörün kendisini iç içe atma: `index.html` depo kökünde yer almalı.
-4. **Commit changes** ile kaydet.
-
-## 3. Netlify'da GitHub'dan yayınla
-
-1. https://app.netlify.com/ → **Add new project → Import an existing project**.
-2. **GitHub** seç ve yeni `project-rise` deposunu bağla.
-3. **Build command**: boş bırak. **Publish directory**: `.` (depo kökü).
-4. **Deploy / Publish** ile yayınla.
-5. Bundan sonra GitHub'a gönderilen değişiklikler Netlify tarafından otomatik yayımlanır.
-
-## 4. Sonraki hedef
-
-v0.2'de `Phaser + TypeScript` tabanına geçip pas, çalım, karakter oluşturma, lig ve sezon simülasyonunu modüler halde geliştireceğiz. v0.1 dosyasını bu geçişte referans olarak koruyacağız.
-
-## Mevcut prototip sınırları
-
-- Tek maçta üç şut fırsatı ve temel şut etkileşimi.
-- İlerleme, XP ve gelişim sistemi.
-- Henüz tam lig, transfer, taktik veya gelişmiş rakip AI motoru yok.
-- Tam PWA değil ve mobil uygulama paketine henüz dönüştürülmedi.
+## Sınırlar
+v0.2 hâlâ maç motorunun ilk sürümüdür. Pas, çalım, savunma, canlı AI, sözleşmeler, transfer, çoklu ligler ve çevrimiçi kayıt sistemi sonraki aşamalardır. Gerçek kulüp markaları lisanssız kullanılmamalıdır.
